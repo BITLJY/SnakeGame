@@ -10,16 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     food.cpp \
+    snake.cpp \
     level.cpp \
-    main.cpp \
     mainwindow.cpp \
-    snake.cpp
+    main.cpp
 
 HEADERS += \
     food.h \
+    snake.h \
     level.h \
-    mainwindow.h \
-    snake.h
+    mainwindow.h
 
 FORMS += \
     level.ui \

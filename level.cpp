@@ -1,5 +1,6 @@
 #include "level.h"
 #include "ui_level.h"
+#include "mainwindow.h"
 
 Level::Level(QWidget *parent) :
     QMainWindow(parent),
