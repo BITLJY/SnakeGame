@@ -2,5 +2,5 @@
 
 Food::Food()
 {
-
+send()
 }
