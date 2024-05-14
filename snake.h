@@ -42,6 +42,8 @@ private:
     bool crashed();//是否碰撞
 
     QTimer* timer;//用于获取随机数
+    QKeyEvent *eventK;
+    QTimerEvent *eventT;
     int timerID ;//定时器
 };
 
