@@ -24,3 +24,8 @@ void MainWindow::keyPressEvent(QKeyEvent *kevent)//处理键盘输入（输入�
 {
 
 };
+void MainWindow::ScoreCount() //把分数显示在计数器上
+{
+    int score = getscore();
+    ui->Score->display(score);
+};
