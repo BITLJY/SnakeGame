@@ -9,29 +9,29 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    exit.cpp \
     food.cpp \
-    login.cpp \
     snake.cpp \
     level.cpp \
     mainwindow.cpp \
     main.cpp
 
 HEADERS += \
-    exit.h \
+    Directions.h \
     food.h \
-    login.h \
     snake.h \
     level.h \
     mainwindow.h
 
 FORMS += \
-    exit.ui \
     level.ui \
-    login.ui \
     mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+msvc{
+    QMAKE_CFLAGS += /utf-8
+    QMAKE_CXXFLAGS += /utf-8
+}
