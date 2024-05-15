@@ -7,7 +7,7 @@
 #include<QTime>
 #include<deque>
 #include"snake.h"
-#include"Directions.h"
+#include"Direction.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
