@@ -3,16 +3,28 @@
 #include "snake.h"
 #include "Food.h"
 #include<QDebug>
+#include <QDesktopWidget>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     setFocusPolicy(Qt::StrongFocus);
-    snake = new Snake(10, 10, this);
+    ui->setupUi(this);
+
+    // 获取窗口的大小
+    QSize windowSize = size();
+
+    // 计算蛇头的初始位置，使其位于窗口中央
+    int snakeInitialX = windowSize.width() / 3;
+    int snakeInitialY = windowSize.height() / 2;
+
+    // 创建蛇对象，并设置初始位置
+    snake = new Snake(snakeInitialX, snakeInitialY, this);
+
     setWindowTitle("Snake Game");
     setGeometry(500, 500, 800, 600); // 设置窗口的位置和大小
-    ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
@@ -22,14 +34,22 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
-{QPainter painter(this);
-    painter.setBrush(Qt::red);//画红色的蛇
+{   QPainter painter(this);
+    painter.setBrush(Qt::white);//画红色的蛇
+
+    painter.setPen(QPen(Qt::black, 5)); // 黑色，宽度为5
+       QRect wallRect(0, 0, 500, 500); // 正方形墙
+       painter.drawRect(wallRect);
+ painter.setBrush(Qt::red);
     int gridSize = 10; // 设定一个合适的网格尺寸
     for (const QPoint &gridPoint : snake->getBody()) {
         QPoint pixelPoint = gridPoint ;
         painter.drawRect(QRect(pixelPoint, QSize(gridSize, gridSize)));
     }
     this->update();
+    painter.setBrush(Qt::red);
+    this->update();
+
 }
 
 
