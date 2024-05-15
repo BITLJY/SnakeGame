@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     food.cpp \
     snake.cpp \
-    level.cpp \
     mainwindow.cpp \
     main.cpp
 
@@ -19,11 +18,9 @@ HEADERS += \
     Directions.h \
     food.h \
     snake.h \
-    level.h \
     mainwindow.h
 
 FORMS += \
-    level.ui \
     mainwindow.ui
 
 # Default rules for deployment.
