@@ -6,7 +6,7 @@
 #include<QTime>
 #include<QTimer>
 #include<deque>
-#include"Direction.h"
+#include"Directions.h"
 class Snake:public QWidget
 {
 public:
