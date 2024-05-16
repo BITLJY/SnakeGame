@@ -55,7 +55,7 @@ void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
     painter.setBrush(Qt::red);
     this->update();
     // 绘制食物
-    painter.setBrush(Qt::red);
+    painter.setBrush(Qt::green);
     QPoint foodPos = food->getPosition();
     painter.drawRect(QRect(foodPos, QSize(gridSize, gridSize)));
 
