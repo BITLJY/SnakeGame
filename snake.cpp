@@ -50,7 +50,7 @@ void Snake::move()//蛇的移动
     case Left:  newHead.setX(newHead.x() - 10); break;
     case Right: newHead.setX(newHead.x() + 10); break;
     }
-    snakebody.push_front(newHead);rmtail();
+    addhead(newHead);rmtail();
     update();//更新移动
     if(ateFood())//调用是否吃到食物函数
     {
