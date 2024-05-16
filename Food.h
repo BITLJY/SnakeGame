@@ -1,7 +1,10 @@
 #ifndef FOOD_H
 #define FOOD_H
 #include<QPoint>
+#include <QVector>
+#include <QRect>
 #include <QRandomGenerator>
+#include"Directions.h"
 
 class Food
 {

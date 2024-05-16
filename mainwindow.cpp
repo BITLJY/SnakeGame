@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowTitle("Snake Game");
     setGeometry(500, 500, 800, 600); // 设置窗口的位置和大小
+
+    food = new Food(490, 490);
 }
 
 MainWindow::~MainWindow()
@@ -34,7 +36,10 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
-{   QPainter painter(this);
+{
+
+  //  snake->single=0;
+    QPainter painter(this);
     painter.setBrush(Qt::white);//画红色的蛇
 
     painter.setPen(QPen(Qt::black, 5)); // 黑色，宽度为5
@@ -49,6 +54,19 @@ void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
     this->update();
     painter.setBrush(Qt::red);
     this->update();
+    // 绘制食物
+    painter.setBrush(Qt::red);
+    QPoint foodPos = food->getPosition();
+    painter.drawRect(QRect(foodPos, QSize(gridSize, gridSize)));
+
+    QPoint snakehead = snake->getBoundingRect();
+    if (qAbs(snakehead.x()-foodPos.x())<10&&qAbs(snakehead.y()-foodPos.y())<10)//吃到食物后出现新的食物
+    {
+        snake->single=1;
+        snake->single1=1;
+        delete food;
+        food = new Food(490, 490);
+    }
 
 }
 
@@ -70,4 +88,5 @@ void MainWindow::keyPressEvent(QKeyEvent *kevent)//处理键盘输入（输入�
         break;
     }
     snake->setDirection(direction);
+
 };

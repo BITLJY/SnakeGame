@@ -3,15 +3,16 @@
 #include<QDebug>
 #include <QDesktopWidget>
 #include <QApplication>
+#include "Food.h"
 Snake::Snake(int xs, int ys, QWidget *parent) : QWidget(parent) {
     xsnake = xs;
     ysnake = ys;
-    direction = Left; // 初始方向向右
+    direction = Left; // 初始方向向左
     for (int i = 0; i < 5; ++i) {
         // 假设蛇的每个节段在水平方向上等距分布，垂直位置相同
         snakebody.push_back(QPoint(xsnake + i * 10, ysnake));
     } // 初始化大小（长度）
-    timerID = startTimer(500); // 启动定时器，每500毫秒触发一次
+    timerID = startTimer(100); // 启动定时器，每n毫秒触发一次
 
 }
 int Snake::getlength()const //获取蛇的长度
@@ -51,11 +52,15 @@ void Snake::move()//蛇的移动
     }
     snakebody.push_front(newHead);rmtail();
     update();//更新移动
-    ateFood();//调用是否吃到食物函数
+    if(ateFood())//调用是否吃到食物函数
+    {
+        qDebug()<<"蛇的长度增加了";
+        grow();
+    }
     if(crashed())
     {
         QMessageBox::critical(this, "诶你怎么似了", "铸币吧这怎么这么菜啊");
-        qApp->exit();
+      qApp->exit();
     }
 
         ;//调用是否碰撞函数
@@ -68,23 +73,36 @@ void Snake::timerEvent(QTimerEvent *event) //按计时器的时间间隔触发�
 }
 bool Snake::ateFood()//是否吃到食物
 {
-
+    if(Snake::single==1)
+    {
+        Snake::single=0;
     return true;
+    }
+
+    return false;
 };
 bool Snake::crashed()//是否碰撞
 {
+    if(Snake::single1==1)
+    {
+        Snake::single1=0;
+        return false;
+    }
     QPoint newHead = snakebody.front();
     if(newHead.x()>490||newHead.x()<10||newHead.y()<10||newHead.y()>490)
-    {return true;
-       }
+    {return true;}
 
-    {
+
         for (int i = 1; i < snakebody.size(); ++i)
         {
             if (newHead == snakebody.at(i))
             return true;
         }
-    }
+
     return false;
 }
-
+QPoint Snake::getBoundingRect() const
+{
+    QPoint newHead = snakebody.front();
+    return newHead;
+}

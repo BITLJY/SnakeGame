@@ -10,3 +10,4 @@ QPoint Food::getPosition()const //获取食物的坐标
 {
     return foodpoint;
 }
+

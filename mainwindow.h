@@ -8,6 +8,7 @@
 #include<deque>
 #include"snake.h"
 #include"Directions.h"
+#include"Food.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -19,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     Snake *snake;
+    Food  *food;
     ~MainWindow();
     inline int getscore(){return this->score;};
     void paintEvent(QPaintEvent *pevent);//绘制蛇和食物
@@ -26,6 +28,7 @@ public:
     Direction direction;
 private:
     Ui::MainWindow *ui;
+    QSize gameAreaSize;
     int score;//得分
 };
 #endif // MAINWINDOW_H
