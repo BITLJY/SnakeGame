@@ -22,11 +22,7 @@ public:
     void setDirection(Direction newDirection);
     int getlength()const;//获取蛇的长度
     const QPoint& at(int index) const;//获取蛇的身体节（按从头到尾的顺序）
-    const std::deque<QPoint>& getBody() const {
-            return snakebody;
-
-
-        }
+    const std::deque<QPoint>& getBody() const {return snakebody;}
     QPoint getBoundingRect() const; // 获取蛇的包围矩形边界
 
     std::deque<QPoint> snakebody;//双端队列定义

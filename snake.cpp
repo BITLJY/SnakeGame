@@ -49,6 +49,7 @@ void Snake::move()//蛇的移动
     case Down:  newHead.setY(newHead.y() + 10); break;
     case Left:  newHead.setX(newHead.x() - 10); break;
     case Right: newHead.setX(newHead.x() + 10); break;
+    //case None: break;//添加一个None的情况
     }
     addhead(newHead);rmtail();
     update();//更新移动
@@ -60,7 +61,7 @@ void Snake::move()//蛇的移动
     if(crashed())
     {
         QMessageBox::critical(this, "诶你怎么似了", "铸币吧这怎么这么菜啊");
-      qApp->exit();
+        qApp->exit();
     }
 
         ;//调用是否碰撞函数
@@ -78,7 +79,6 @@ bool Snake::ateFood()//是否吃到食物
         Snake::single=0;
     return true;
     }
-
     return false;
 };
 bool Snake::crashed()//是否碰撞
@@ -90,15 +90,15 @@ bool Snake::crashed()//是否碰撞
     }
     QPoint newHead = snakebody.front();
     if(newHead.x()>490||newHead.x()<10||newHead.y()<10||newHead.y()>490)
-    {return true;}
-
-
-        for (int i = 1; i < snakebody.size(); ++i)
-        {
-            if (newHead == snakebody.at(i))
-            return true;
-        }
-
+    {
+        return true;
+    }
+    int size=snakebody.size();//snakebody.size()为无符号类型，最好不和int直接比较
+    for (int i = 1; i < size; ++i)
+    {
+        if (newHead == snakebody.at(i))
+        return true;
+    }
     return false;
 }
 QPoint Snake::getBoundingRect() const
