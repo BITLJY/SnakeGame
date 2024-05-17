@@ -47,21 +47,47 @@ background-color: rgb(85, 170, 127);</string>
      <string>得分：</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pB_restart">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>410</y>
-      <width>101</width>
-      <height>41</height>
+      <x>580</x>
+      <y>140</y>
+      <width>160</width>
+      <height>261</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
-    </property>
-    <property name="text">
-     <string>重新开始</string>
-    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pB_on_pushbutton_select">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+       </property>
+       <property name="text">
+        <string>选择关卡</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pB_on_pushbutton_restart">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+       </property>
+       <property name="text">
+        <string>重新开始</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pB_on_pushbutton_start">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+       </property>
+       <property name="text">
+        <string>开始游戏</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

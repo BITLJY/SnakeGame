@@ -2,7 +2,7 @@
 #define START_H
 
 #include<QObject>
-//#include<QWideget>
+#include<QWideget>
 #include<QPoint>
 
 class start

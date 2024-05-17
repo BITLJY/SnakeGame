@@ -10,26 +10,20 @@ CONFIG += c++11
 
 SOURCES += \
     food.cpp \
+    level.cpp \
     snake.cpp \
     mainwindow.cpp \
-    main.cpp \
-    exit.cpp \
-    login.cpp \
-    start.cpp
+    main.cpp
 
 HEADERS += \
     Directions.h \
     food.h \
+    level.h \
     snake.h \
-    mainwindow.h \
-    exit.h \
-    login.h \
-    start.h
+    mainwindow.h
 
 FORMS += \
-    mainwindow.ui \
-    exit.ui \
-    login.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
