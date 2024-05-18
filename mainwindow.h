@@ -29,9 +29,9 @@ public:
 private slots:
     void on_pB_on_pushbutton_start_clicked();
     void on_pB_on_pushbutton_restart_clicked();
-
     void on_pB_on_pushbutton_select_clicked();
-
+    void on_pB_on_pushbutton_stop_clicked();
+    void on_pB_on_pushbutton_goon_clicked();
     void on_Score_overflow();
 
 private:

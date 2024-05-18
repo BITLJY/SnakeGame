@@ -57,17 +57,7 @@ background-color: rgb(85, 170, 127);</string>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QPushButton" name="pB_on_pushbutton_select">
-       <property name="styleSheet">
-        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
-       </property>
-       <property name="text">
-        <string>选择关卡</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
+     <item row="4" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_restart">
        <property name="styleSheet">
         <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
@@ -87,6 +77,36 @@ background-color: rgb(85, 170, 127);</string>
        </property>
       </widget>
      </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pB_on_pushbutton_stop">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+       </property>
+       <property name="text">
+        <string>暂停游戏</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pB_on_pushbutton_select">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+       </property>
+       <property name="text">
+        <string>选择关卡</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pB_on_pushbutton_goon">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+       </property>
+       <property name="text">
+        <string>继续游戏</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -96,7 +116,7 @@ background-color: rgb(85, 170, 127);</string>
      <x>0</x>
      <y>0</y>
      <width>759</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

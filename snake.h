@@ -8,8 +8,12 @@
 #include<deque>
 #include <QVector>
 #include <QRect>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+
 #include"Directions.h"
 #include "level.h"
+
 class Snake:public QWidget
 {
 public:
@@ -21,28 +25,28 @@ public:
     Direction direction;
     void timerEvent(QTimerEvent *event);
     void setDirection(Direction newDirection);
-    int getlength()const;//获取蛇的长度
-    const QPoint& at(int index) const;//获取蛇的身体节（按从头到尾的顺序）
-    const std::deque<QPoint>& getBody() const {
-            return snakebody;
-
-
-        }
+    const std::deque<QPoint>& getBody() const {return snakebody; }
     QTimer* getTimer() const { return timer; }
     QPoint getBoundingRect() const; // 获取蛇的包围矩形边界
 
     std::deque<QPoint> snakebody;//双端队列定义
-    ;
+
     void adjustSpeed();
     void startGame();
     void stopGame();
     void reset();
     void setLevel(Level *level);
     void setFoodCount(int count);
-    void setInitialSpeed(int speed) {
-            initialSpeed = speed;
-            adjustSpeed(); // 根据新的初始速度调整实际速度
-        }
+    void setInitialSpeed(int speed)
+    {
+        initialSpeed = speed;
+        adjustSpeed(); // 根据新的初始速度调整实际速度
+    }
+    //音乐播放器
+    QMediaPlayer *gameSound = new QMediaPlayer;//创建播放器
+    QMediaPlaylist *gameList = new QMediaPlaylist;//创建播放列表
+    int flag=0;
+
 private:
     int xsnake,ysnake;//初始化的位置（一般为界面中心）
     int maxL;//蛇的最大长度

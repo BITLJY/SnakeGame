@@ -3,6 +3,7 @@
 #include "snake.h"
 #include "Food.h"
 #include "level.h"
+
 #include<QDebug>
 #include <QDesktopWidget>
 #include <QMessageBox>
@@ -37,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 创建食物对象
     food = new Food(490, 490);
-    foods = QList<Food*>();
+    foods = QList<Food*>();        
 }
 
 MainWindow::~MainWindow()
@@ -56,33 +57,34 @@ void MainWindow::initGame() {
 
 void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
 {
-       if (!snake || !food || !currentLevel) {
-           qDebug() << "Snake, food, or currentLevel is null";
-           return;}
-  //  snake->single=0;
+    if (!snake || !food || !currentLevel)
+    {
+        qDebug() << "Snake, food, or currentLevel is null";
+        return;
+    }
+    //snake->single=0;
     QPainter painter(this);
     painter.setBrush(Qt::white);//画红色的蛇
-
     painter.setPen(QPen(Qt::black, 5)); // 黑色，宽度为5
-       QRect wallRect(0, 0, 500, 500); // 正方形墙
-       painter.drawRect(wallRect);
- painter.setBrush(Qt::red);
+    QRect wallRect(0, 0, 500, 500); // 正方形墙
+    painter.drawRect(wallRect);
+    painter.setBrush(Qt::red);
     int gridSize = 10; // 设定一个合适的网格尺寸
-    for (const QPoint &gridPoint : snake->getBody()) {
+    for (const QPoint &gridPoint : snake->getBody())
+    {
         QPoint pixelPoint = gridPoint ;
         painter.drawRect(QRect(pixelPoint, QSize(gridSize, gridSize)));
     }
     this->update();
     painter.setBrush(Qt::red);
-
     // 绘制食物
     painter.setBrush(Qt::green);
-
     QPoint foodPos = food->getPosition();
     painter.drawRect(QRect(foodPos, QSize(gridSize, gridSize)));
-        // 绘制障碍物
+    // 绘制障碍物
     painter.setBrush(Qt::black);
-    for (const QPoint &obstacle : currentLevel->getObstacles()) {
+    for (const QPoint &obstacle : currentLevel->getObstacles())
+    {
         painter.drawRect(QRect(obstacle, QSize(gridSize, gridSize)));
     }
     QPoint snakehead = snake->getBoundingRect();
@@ -94,13 +96,12 @@ void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
         food = new Food(490, 490);
         on_Score_overflow();
     }
-
 }
-
 
 void MainWindow::keyPressEvent(QKeyEvent *kevent)//处理键盘输入（输入上下左右时赋给蛇移动的函数）
 {
-    switch (kevent->key()) {
+    switch (kevent->key())
+    {
     case Qt::Key_Up:
         if (direction != Down) direction = Up;
         break;
@@ -115,7 +116,6 @@ void MainWindow::keyPressEvent(QKeyEvent *kevent)//处理键盘输入（输入�
         break;
     }
     snake->setDirection(direction);
-
 };
 
 
@@ -128,13 +128,23 @@ void MainWindow::on_pB_on_pushbutton_restart_clicked()
 {
     ui->Score->display(0);
     snake->stopGame(); // 停止游戏
-        // 重新设置蛇的位置等
-        // 重新开始游戏
-        snake->reset();
-        snake->startGame(); // 开始游戏
+    // 重新设置蛇的位置等
+    // 重新开始游戏
+    snake->reset();
+    snake->startGame(); // 开始游戏
 }
 
+void MainWindow::on_pB_on_pushbutton_stop_clicked()
+{
+    snake->flag=0;
+    snake->stopGame(); // 停止游戏
+    QMessageBox::critical(this, "游戏暂停", "游戏已暂停");
+}
 
+void MainWindow::on_pB_on_pushbutton_goon_clicked()
+{
+    snake->startGame(); // 开始游戏
+}
 
 // 在关卡选择的槽函数中设置关卡对象的初始速度并初始化游戏
 void MainWindow::on_pB_on_pushbutton_select_clicked()

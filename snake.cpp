@@ -1,10 +1,12 @@
 #include "snake.h"
+#include "Food.h"
+#include "level.h"
+
 #include <QMessageBox>
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QApplication>
-#include "Food.h"
-#include "level.h"
+#include <QSound>
 
 Snake::Snake(int xs, int ys, QWidget *parent) : QWidget(parent) {
     xsnake = xs;
@@ -25,18 +27,33 @@ Snake::Snake(int xs, int ys, QWidget *parent) : QWidget(parent) {
     currentLevel = nullptr;
     Level *currentLevel;
     currentLevel = nullptr;
+    gameList->addMedia(QUrl("qrc:/new/prefix1/bgm.wav"));//添加音乐
+    gameList->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);//循环播放
+    gameSound->setPlaylist(gameList);
+    gameSound->setVolume(80);//音量
    }
 
-void Snake::startGame() {
-    if (!gameRunning) {
+void Snake::startGame()
+{
+    if (!gameRunning)
+    {
         timerID = startTimer(100); // 启动定时器
         gameRunning = true; // 标记游戏正在运行
+        gameSound->play();//音乐播放
     }
 }
-void Snake::stopGame() {
-    if (gameRunning) {
+void Snake::stopGame()
+{
+    if (gameRunning)
+    {
+        if(flag==1)
+        {
+            QSound *startsound=new QSound("qrc:/new/prefix1/gameover.wav");//添加失败的音效
+            startsound->play();startsound->setLoops(1);
+        }
         killTimer(timerID); // 停止定时器
         gameRunning = false; // 标记游戏停止运行
+        gameSound->stop();//音乐停止
     }
 }
 void Snake::setLevel(Level *level)
@@ -66,16 +83,6 @@ void Snake::setFoodCount(int count)
         currentLevel->setFoodCount(count);
     }
 }
-int Snake::getlength() const //获取蛇的长度
-{
-    return snakebody.size();
-}
-
-const QPoint& Snake::at(int index) const // 获取蛇的身体节（按从头到尾的顺序）
-{
-    return snakebody.at(index);
-}
-
 void Snake::addhead(const QPoint& position) //增加新的一节在头
 {
     snakebody.push_front(position);
@@ -96,12 +103,14 @@ void Snake::setDirection(Direction newDirection) //从mainwindow中获取方向�
     this->direction = newDirection;
 }
 
-void Snake::move() {
-    if (gameRunning) {
+void Snake::move()
+{
+    if (gameRunning)
+    {
         timeCounter++; // 增加时间计数器
-
         QPoint newHead = snakebody.front();
-        switch (direction) {
+        switch (direction)
+        {
             case Up:
                 newHead.ry() -= 10;
                 break;
@@ -114,21 +123,27 @@ void Snake::move() {
             case Right:
                 newHead.rx() += 10;
                 break;
+            case None:
+                break;
         }
 
         // 检查新头部位置是否超出边界
-        if (newHead.x() < 0 || newHead.x() >= 500 || newHead.y() < 0 || newHead.y() >= 500) {
+        if (newHead.x() < 0 || newHead.x() >= 500 || newHead.y() < 0 || newHead.y() >= 500)
+        {
             // 超出边界，游戏结束
-            stopGame();
+            flag=1;stopGame();
             QMessageBox::critical(this, "Game Over", "You hit the wall! Game Over.");
             return;
         }
 
         // 检查新头部位置是否与蛇身相撞
-        for (int i = 1; i < snakebody.size(); ++i) {
-            if (newHead == snakebody.at(i)) {
+        std::size_t size = snakebody.size();
+        for (std::size_t i = 1; i < size; ++i)
+        {
+            if (newHead == snakebody.at(i))
+            {
                 // 与蛇身相撞，游戏结束
-                stopGame();
+                flag=1;stopGame();
                 QMessageBox::critical(this, "Game Over", "You crashed into yourself! Game Over.");
                 return;
             }
@@ -136,11 +151,12 @@ void Snake::move() {
 
         // 检查新头部位置是否与障碍物相撞
         qDebug()<<newHead;
-        if (currentLevel && currentLevel->isObstacle(newHead)) {
-                    stopGame();
-                    QMessageBox::critical(this, "Game Over", "You hit an obstacle! Game Over.");
-                    return;
-                }
+        if (currentLevel && currentLevel->isObstacle(newHead))
+        {
+            flag=1;stopGame();
+            QMessageBox::critical(this, "Game Over", "You hit an obstacle! Game Over.");
+            return;
+         }
         // 如果没有碰撞，则更新蛇的位置
         addhead(newHead);
         rmtail();
@@ -155,10 +171,6 @@ void Snake::move() {
     }
 }
 
-
-
-
-
 void Snake::timerEvent(QTimerEvent *event) //按计时器的时间间隔触发蛇的移动函数
 {
     if (event->timerId() == timerID) {
@@ -171,6 +183,8 @@ void Snake::timerEvent(QTimerEvent *event) //按计时器的时间间隔触发�
 bool Snake::ateFood() {
     if (single == 1) {
         single = 0;
+        QSound *startsound=new QSound("qrc:/new/prefix1/atefoodmusic.wav");//添加吃食物的音效
+        startsound->play();startsound->setLoops(1);
         foodEatenCount++;
         // 增加吃到食物的次数
         return true;
@@ -180,16 +194,19 @@ bool Snake::ateFood() {
 
 bool Snake::crashed() //是否碰撞
 {
-    if (Snake::single1 == 1) {
+    if (Snake::single1 == 1)
+    {
         Snake::single1 = 0;
         return false;
     }
     QPoint newHead = snakebody.front();
-    if (newHead.x() > 490 || newHead.x() < 10 || newHead.y() < 10 || newHead.y() > 490) {
+    if (newHead.x() > 490 || newHead.x() < 10 || newHead.y() < 10 || newHead.y() > 490)
+    {
         return true;
     }
-
-    for (int i = 1; i < snakebody.size(); ++i) {
+    std::size_t size = snakebody.size();
+    for (std::size_t i = 1; i < size; ++i)
+    {
         if (newHead == snakebody.at(i))
             return true;
     }
