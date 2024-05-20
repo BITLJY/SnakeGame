@@ -7,30 +7,48 @@
     <x>0</x>
     <y>0</y>
     <width>762</width>
-    <height>510</height>
+    <height>545</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>762</width>
-    <height>510</height>
+    <height>545</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>762</width>
-    <height>520</height>
+    <height>555</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10000</width>
+     <height>10000</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">this-&gt;lower();</string>
+   </property>
    <widget class="QLCDNumber" name="Score">
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>10</y>
+      <y>30</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -43,32 +61,19 @@ background-color: rgb(85, 170, 127);</string>
      <enum>QLCDNumber::Filled</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>10</y>
-      <width>81</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
-    </property>
-    <property name="text">
-     <string>得分：</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>140</y>
+      <x>540</x>
+      <y>270</y>
       <width>160</width>
       <height>261</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="spacing">
+      <number>5</number>
+     </property>
      <item row="4" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_restart">
        <property name="styleSheet">
@@ -245,6 +250,23 @@ QPushButton:pressed
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>30</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;幼圆&quot;;
+background:white;</string>
+    </property>
+    <property name="text">
+     <string>得分：</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

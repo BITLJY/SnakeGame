@@ -1,15 +1,20 @@
 #ifndef SNAKE_H
 #define SNAKE_H
-#include<QPoint>
-#include<QKeyEvent>
+#include <QPoint>
+#include <QKeyEvent>
 #include <QWidget>
-#include<QTime>
-#include<QTimer>
-#include<deque>
+#include <QTime>
+#include <QTimer>
+#include <deque>
 #include <QVector>
 #include <QRect>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QMessageBox>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QSound>
 
 #include"Directions.h"
 #include "level.h"

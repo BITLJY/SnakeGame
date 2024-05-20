@@ -90,14 +90,14 @@ QPushButton
 QPushButton:hover
 {
     /*背景颜色*/  
-    background-color:rgb(44 , 137 , 255);
+    background-color:#1874CD;
 }
 
 /*按钮按下态*/
 QPushButton:pressed
 {
     /*背景颜色*/  
-    background-color:rgb(14 , 135 , 228);
+    background-color:#104E8B;
     /*左内边距为3像素，让按下时字向右移动3像素*/  
     padding-left:3px;
     /*上内边距为3像素，让按下时字向下移动3像素*/  
@@ -141,19 +141,20 @@ QPushButton
 QPushButton:hover
 {
     /*背景颜色*/  
-    background-color:rgb(44 , 137 , 255);
+    background-color:#1874CD;
 }
 
 /*按钮按下态*/
 QPushButton:pressed
 {
     /*背景颜色*/  
-    background-color:rgb(14 , 135 , 228);
+    background-color:#104E8B;
     /*左内边距为3像素，让按下时字向右移动3像素*/  
     padding-left:3px;
     /*上内边距为3像素，让按下时字向下移动3像素*/  
     padding-top:3px;
-}</string>
+}
+</string>
     </property>
     <property name="text">
      <string>退出游戏</string>

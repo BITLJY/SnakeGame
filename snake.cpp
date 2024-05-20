@@ -2,12 +2,6 @@
 #include "Food.h"
 #include "level.h"
 
-#include <QMessageBox>
-#include <QDebug>
-#include <QDesktopWidget>
-#include <QApplication>
-#include <QSound>
-
 Snake::Snake(int xs, int ys, QWidget *parent) : QWidget(parent)
 {
     xsnake = xs;
@@ -262,12 +256,15 @@ void Snake::adjustSpeed()
     }
      }
 }
+
 bool Snake::isSnakeBody(const QPoint &point) const
 {
 
-    for (const QPoint &Snakebody : snakebody) {
+    for (const QPoint &Snakebody : snakebody)
+    {
         int distance = qAbs(point.x() - Snakebody.x()) + qAbs(point.y() - Snakebody.y());
-                if (distance < 1) {
+        if (distance < 1)
+        {
             return true;
         }
     }

@@ -1,4 +1,4 @@
-#include "Level.h"
+#include "level.h"
 #include <QDebug>
 
 Level::Level(QObject *parent) : QObject(parent), foodCount() // 默认食物数量为1
@@ -61,3 +61,4 @@ bool Level::isObstacle(const QPoint &point) const
     }
     return false;
 }
+

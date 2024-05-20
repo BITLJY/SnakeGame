@@ -6,5 +6,7 @@
     </qresource>
     <qresource prefix="/new/prefix2">
         <file>loginpicture.jpg</file>
+        <file>snakepicture.jpg</file>
+        <file>exitpicture.jpg</file>
     </qresource>
 </RCC>

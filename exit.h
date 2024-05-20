@@ -14,6 +14,7 @@ class Exit : public QDialog
 public:
     explicit Exit(QWidget *parent = nullptr);
     ~Exit();
+    bool exitok=0;
 
 private slots:
     void on_pB_Yes_clicked();

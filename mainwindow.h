@@ -2,7 +2,14 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include <QTime>
+#include <QTimer>
 #include <deque>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QRandomGenerator>
+
 #include "snake.h"
 #include "Directions.h"
 #include "Food.h"
@@ -24,6 +31,7 @@ public:
 
     void paintEvent(QPaintEvent *event1); // 绘制蛇和食物
     void keyPressEvent(QKeyEvent *event2); // 处理键盘输入（输入上下左右时赋给蛇移动的函数）
+    void closeEvent(QCloseEvent *event3);//关闭窗口事件，可以询问是否退出
     void initGame(); // 初始化游戏
 
 private slots:
