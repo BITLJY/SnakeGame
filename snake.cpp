@@ -262,3 +262,14 @@ void Snake::adjustSpeed()
     }
      }
 }
+bool Snake::isSnakeBody(const QPoint &point) const
+{
+
+    for (const QPoint &Snakebody : snakebody) {
+        int distance = qAbs(point.x() - Snakebody.x()) + qAbs(point.y() - Snakebody.y());
+                if (distance < 1) {
+            return true;
+        }
+    }
+    return false;
+}

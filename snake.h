@@ -37,6 +37,7 @@ public:
     void reset();
     void setLevel(Level *level);
     void setFoodCount(int count);
+    bool isSnakeBody(const QPoint &point) const;
     void setInitialSpeed(int speed)
     {
         initialSpeed = speed;

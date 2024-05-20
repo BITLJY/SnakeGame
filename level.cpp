@@ -55,11 +55,9 @@ bool Level::isObstacle(const QPoint &point) const
 
     for (const QPoint &obstacle : obstacles) {
         int distance = qAbs(point.x() - obstacle.x()) + qAbs(point.y() - obstacle.y());
-            qDebug()<<distance;
                 if (distance < 10) {
             return true;
         }
     }
     return false;
 }
-
