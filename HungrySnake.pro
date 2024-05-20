@@ -16,7 +16,6 @@ SOURCES += \
     main.cpp \
     exit.cpp \
     login.cpp \
-    start.cpp \
     level.cpp
 
 HEADERS += \
@@ -26,7 +25,6 @@ HEADERS += \
     mainwindow.h \
     exit.h \
     login.h \
-    start.h \
     level.h
 
 FORMS += \
