@@ -20,10 +20,8 @@ public:
     ~login();
 
 private slots:
-    void on_pB_easy_clicked(); //三个难度的按钮
-    void on_pB_normal_clicked();
-    void on_pB_hard_clicked();
     void on_pB_exit_clicked();//退出游戏
+    void on_pB_enter_clicked();
 
 private:
     Ui::login *ui;

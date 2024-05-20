@@ -25,7 +25,8 @@
     </property>
     <property name="styleSheet">
      <string notr="true">border-color: rgb(0, 0, 0);
-background-color: rgb(85, 170, 127);</string>
+background-color: rgb(107, 214, 158);
+</string>
     </property>
     <property name="segmentStyle">
      <enum>QLCDNumber::Filled</enum>
@@ -60,7 +61,7 @@ background-color: rgb(85, 170, 127);</string>
      <item row="4" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_restart">
        <property name="styleSheet">
-        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
        </property>
        <property name="text">
         <string>重新开始</string>
@@ -70,7 +71,7 @@ background-color: rgb(85, 170, 127);</string>
      <item row="0" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_start">
        <property name="styleSheet">
-        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
        </property>
        <property name="text">
         <string>开始游戏</string>
@@ -80,7 +81,7 @@ background-color: rgb(85, 170, 127);</string>
      <item row="1" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_stop">
        <property name="styleSheet">
-        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
        </property>
        <property name="text">
         <string>暂停游戏</string>
@@ -90,7 +91,7 @@ background-color: rgb(85, 170, 127);</string>
      <item row="3" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_select">
        <property name="styleSheet">
-        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
        </property>
        <property name="text">
         <string>选择关卡</string>
@@ -100,7 +101,7 @@ background-color: rgb(85, 170, 127);</string>
      <item row="2" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_goon">
        <property name="styleSheet">
-        <string notr="true">font: 16pt &quot;幼圆&quot;;</string>
+        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
        </property>
        <property name="text">
         <string>继续游戏</string>
@@ -116,7 +117,7 @@ background-color: rgb(85, 170, 127);</string>
      <x>0</x>
      <y>0</y>
      <width>759</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
