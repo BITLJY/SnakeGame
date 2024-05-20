@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>759</width>
-    <height>503</height>
+    <width>762</width>
+    <height>510</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>762</width>
+    <height>510</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>762</width>
+    <height>520</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -25,8 +37,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">border-color: rgb(0, 0, 0);
-background-color: rgb(107, 214, 158);
-</string>
+background-color: rgb(85, 170, 127);</string>
     </property>
     <property name="segmentStyle">
      <enum>QLCDNumber::Filled</enum>
@@ -61,7 +72,32 @@ background-color: rgb(107, 214, 158);
      <item row="4" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_restart">
        <property name="styleSheet">
-        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
+        <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:16pt;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:#B0E2FF;
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:#00BFFF;
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}</string>
        </property>
        <property name="text">
         <string>重新开始</string>
@@ -71,7 +107,32 @@ background-color: rgb(107, 214, 158);
      <item row="0" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_start">
        <property name="styleSheet">
-        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
+        <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:16pt;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:#B0E2FF;
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:#00BFFF;
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}</string>
        </property>
        <property name="text">
         <string>开始游戏</string>
@@ -81,7 +142,32 @@ background-color: rgb(107, 214, 158);
      <item row="1" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_stop">
        <property name="styleSheet">
-        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
+        <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:16pt;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:#B0E2FF;
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:#00BFFF;
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}</string>
        </property>
        <property name="text">
         <string>暂停游戏</string>
@@ -91,7 +177,32 @@ background-color: rgb(107, 214, 158);
      <item row="3" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_select">
        <property name="styleSheet">
-        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
+        <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:16pt;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:#B0E2FF;
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:#00BFFF;
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}</string>
        </property>
        <property name="text">
         <string>选择关卡</string>
@@ -101,7 +212,32 @@ background-color: rgb(107, 214, 158);
      <item row="2" column="0">
       <widget class="QPushButton" name="pB_on_pushbutton_goon">
        <property name="styleSheet">
-        <string notr="true">font: 14pt &quot;幼圆&quot;;</string>
+        <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:16pt;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:#B0E2FF;
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:#00BFFF;
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}</string>
        </property>
        <property name="text">
         <string>继续游戏</string>
@@ -116,8 +252,8 @@ background-color: rgb(107, 214, 158);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>759</width>
-     <height>21</height>
+     <width>762</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

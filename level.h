@@ -19,9 +19,7 @@ public:
     int getInitialSpeed() const { return m_initialSpeed; }// 设置障碍物的位置
     const QVector<QPoint>& getObstacles() const; // 获取障碍物的位置
     void setObstacles(QString level);
-    void setObstacles(const QVector<QPoint> &obstacles) {
-            this->obstacles = obstacles;
-        }
+    void setObstacles(const QVector<QPoint> &obstacles) {this->obstacles = obstacles;}
     bool isObstacle(const QPoint &point) const;
 
 signals:

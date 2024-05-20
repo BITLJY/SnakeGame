@@ -6,6 +6,7 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include <QFont>
+#include <QDesktopWidget>
 
 namespace Ui {
 class login;
@@ -20,8 +21,8 @@ public:
     ~login();
 
 private slots:
+    void on_pB_in_clicked();
     void on_pB_exit_clicked();//退出游戏
-    void on_pB_enter_clicked();
 
 private:
     Ui::login *ui;

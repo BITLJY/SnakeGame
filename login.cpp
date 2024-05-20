@@ -2,8 +2,6 @@
 #include "ui_login.h"
 #include "exit.h"
 #include "mainwindow.h"
-#include <QPainter>
-
 
 login::login(QWidget *parent) :
     QWidget(parent),
@@ -16,22 +14,16 @@ login::~login()
     delete ui;
 }
 
-void login::on_pB_exit_clicked() //退出系统
-{
-     Exit *eexit = new Exit();
-     eexit->show();
-}
-
-void login::on_pB_enter_clicked()
+void login::on_pB_in_clicked()
 {
     this->hide();
     MainWindow *mainwindow = new MainWindow;
     mainwindow->show();
+    QDesktopWidget* desktop = QApplication::desktop();
+    mainwindow->move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
 }
-void login::paintEvent(QPaintEvent *e)
+void login::on_pB_exit_clicked() //退出系统
 {
-    QStyleOption opt;
-    opt.init(this);
-    QPainter p(this);
-    style()->drawPrimitive(QStyle::PE_Widget, &amp;opt, &amp;p, this);
+     Exit *eexit = new Exit();
+     eexit->show();
 }

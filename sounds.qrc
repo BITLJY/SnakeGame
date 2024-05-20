@@ -4,4 +4,7 @@
         <file>gameover.wav</file>
         <file>bgm.wav</file>
     </qresource>
+    <qresource prefix="/new/prefix2">
+        <file>loginpicture.jpg</file>
+    </qresource>
 </RCC>

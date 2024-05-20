@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setFocusPolicy(Qt::StrongFocus);
     ui->setupUi(this);
-
     // 获取窗口的大小
     QSize windowSize = size();
 
@@ -30,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     setGeometry(500, 500, 800, 600); // 设置窗口的位置和大小
 
     // 创建并设置关卡对象
-    currentLevel = new Level(100); // 将初始速度设置为100
+    currentLevel = new Level(80); // 将初始速度设置为100
 
     QVector<QPoint> obstacles;
     // 添加障碍物坐标到 obstacles 中
@@ -64,10 +63,12 @@ void MainWindow::paintEvent(QPaintEvent *event)//绘制蛇和食物
     }
     //snake->single=0;
     QPainter painter(this);
-    painter.setBrush(Qt::white);//画红色的蛇
-    painter.setPen(QPen(Qt::black, 5)); // 黑色，宽度为5
-    QRect wallRect(0, 0, 500, 500); // 正方形墙
+    // 绘制边界（正方形墙）
+    painter.setBrush(Qt::white);
+    painter.setPen(QPen(Qt::black, 5));
+    QRect wallRect(0, 0, 500, 500);
     painter.drawRect(wallRect);
+    //绘制红色的蛇
     painter.setBrush(Qt::red);
     int gridSize = 10; // 设定一个合适的网格尺寸
     for (const QPoint &gridPoint : snake->getBody())
@@ -103,17 +104,13 @@ void MainWindow::keyPressEvent(QKeyEvent *kevent)//处理键盘输入（输入�
     switch (kevent->key())
     {
     case Qt::Key_Up:
-        if (direction != Down) direction = Up;
-        break;
+        if (direction != Down) direction = Up;break;
     case Qt::Key_Down:
-        if (direction != Up) direction = Down;
-        break;
+        if (direction != Up) direction = Down;break;
     case Qt::Key_Left:
-        if (direction != Right) direction = Left;
-        break;
+        if (direction != Right) direction = Left;break;
     case Qt::Key_Right:
-        if (direction != Left) direction = Right;
-        break;
+        if (direction != Left) direction = Right;break;
     }
     snake->setDirection(direction);
 };

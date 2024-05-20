@@ -2,13 +2,12 @@
 #include <QDebug>
 
 Level::Level(QObject *parent) : QObject(parent), foodCount() // 默认食物数量为1
-{
-
-}
+{}
 
 void Level::setFoodCount(int count)
 {
-    if (count != foodCount) {
+    if (count != foodCount)
+    {
         foodCount = count;
         emit foodCountChanged(foodCount); // 发射食物数量变化的信号
     }
@@ -18,10 +17,12 @@ int Level::getFoodCount() const
     return foodCount;
 }
 
-const QVector<QPoint>& Level::getObstacles() const {
+const QVector<QPoint>& Level::getObstacles() const
+{
     return obstacles;
 }
-void Level::setObstacles(QString level) {
+void Level::setObstacles(QString level)
+{
     // 清空先前的障碍物
     obstacles.clear();
 

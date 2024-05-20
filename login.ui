@@ -6,88 +6,160 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>857</height>
+    <width>1010</width>
+    <height>590</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1010</width>
+    <height>590</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1010</width>
+    <height>590</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#login{border-image: url(:/new/prefix1/Image/1486277309090.jpg);}</string>
-  </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QSplitter" name="splitter">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <widget class="QPushButton" name="pB_enter">
-          <property name="styleSheet">
-           <string notr="true">font: 18pt &quot;幼圆&quot;;</string>
-          </property>
-          <property name="text">
-           <string>进入游戏</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="pB_exit">
-          <property name="styleSheet">
-           <string notr="true">font: 18pt &quot;幼圆&quot;;</string>
-          </property>
-          <property name="text">
-           <string>退出游戏</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </item>
-  </layout>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>200</y>
+     <width>321</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1011</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#frame{
+border-image: url(:/new/prefix2/loginpicture.jpg)
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pB_in">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>450</y>
+      <width>321</width>
+      <height>86</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:18pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:#1E90FF;
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-style: outset;
+	border-width: 5px;
+	border-color: #FFFFFF;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:rgb(44 , 137 , 255);
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>进入游戏</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_exit">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>450</y>
+      <width>321</width>
+      <height>86</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/*按钮普通态*/
+QPushButton
+{
+    /*字体为幼圆*/
+    font-family:幼圆;
+    /*字体大小为18点*/
+    font-size:18pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:#1E90FF;
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-style: outset;
+	border-width: 5px;
+	border-color: #FFFFFF;
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:rgb(44 , 137 , 255);
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+}</string>
+    </property>
+    <property name="text">
+     <string>退出游戏</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>

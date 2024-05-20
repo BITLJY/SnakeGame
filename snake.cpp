@@ -8,11 +8,13 @@
 #include <QApplication>
 #include <QSound>
 
-Snake::Snake(int xs, int ys, QWidget *parent) : QWidget(parent) {
+Snake::Snake(int xs, int ys, QWidget *parent) : QWidget(parent)
+{
     xsnake = xs;
     ysnake = ys;
     direction = Left; // 初始方向向左
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         // 假设蛇的每个节段在水平方向上等距分布，垂直位置相同
         snakebody.push_back(QPoint(xsnake + i * 10, ysnake));
     } // 初始化大小（长度）
@@ -60,10 +62,12 @@ void Snake::setLevel(Level *level)
 {
     currentLevel = level;
 }
-void Snake::reset() {
+void Snake::reset()
+{
     // 重置蛇的位置
     snakebody.clear();
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         snakebody.push_back(QPoint(xsnake + i * 10, ysnake));
     }
     // 重置蛇的方向
@@ -79,7 +83,8 @@ void Snake::reset() {
 
 void Snake::setFoodCount(int count)
 {
-    if (currentLevel) {
+    if (currentLevel)
+    {
         currentLevel->setFoodCount(count);
     }
 }
@@ -135,7 +140,6 @@ void Snake::move()
             QMessageBox::critical(this, "Game Over", "You hit the wall! Game Over.");
             return;
         }
-
         // 检查新头部位置是否与蛇身相撞
         std::size_t size = snakebody.size();
         for (std::size_t i = 1; i < size; ++i)
@@ -148,7 +152,6 @@ void Snake::move()
                 return;
             }
         }
-
         // 检查新头部位置是否与障碍物相撞
         qDebug()<<newHead;
         if (currentLevel && currentLevel->isObstacle(newHead))
@@ -210,7 +213,6 @@ bool Snake::crashed() //是否碰撞
         if (newHead == snakebody.at(i))
             return true;
     }
-
     return false;
 }
 
