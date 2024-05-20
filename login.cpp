@@ -26,4 +26,5 @@ void login::on_pB_exit_clicked() //退出系统
 {
      Exit *eexit = new Exit();
      eexit->show();
+     eexit->setStyleSheet("#Exit{border-image: url(:/new/prefix2/exit1.jpg);}");
 }

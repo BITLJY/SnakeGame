@@ -29,7 +29,8 @@ void Level::setObstacles(QString level)
     // 根据不同的关卡设置障碍物
     if (level == "level1") {
         // 第一关无障碍物
-    } else if (level == "level2") {
+    } else if (level == "level2")
+    {
         // 第二关十个离散障碍物
         obstacles << QPoint(100, 100)
                    << QPoint(110, 100)
@@ -41,7 +42,8 @@ void Level::setObstacles(QString level)
                    << QPoint(170, 100)
                    << QPoint(180, 100)
                    << QPoint(190, 100);
-    } else if (level == "level3") {
+    } else if (level == "level3")
+    {
         // 第三关四个连续的1*7墙壁
         obstacles << QPoint(100, 100) << QPoint(100, 110) << QPoint(100, 120) << QPoint(100, 130) << QPoint(100, 140) << QPoint(100, 150) << QPoint(100, 160)
                    << QPoint(200, 100) << QPoint(200, 110) << QPoint(200, 120) << QPoint(200, 130) << QPoint(200, 140) << QPoint(200, 150) << QPoint(200, 160)
@@ -53,9 +55,11 @@ void Level::setObstacles(QString level)
 bool Level::isObstacle(const QPoint &point) const
 {
 
-    for (const QPoint &obstacle : obstacles) {
+    for (const QPoint &obstacle : obstacles)
+    {
         int distance = qAbs(point.x() - obstacle.x()) + qAbs(point.y() - obstacle.y());
-                if (distance < 10) {
+                if (distance < 10)
+                {
             return true;
         }
     }

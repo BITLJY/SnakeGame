@@ -15,8 +15,8 @@ public:
     // 添加设定食物数量的函数
     void setFoodCount(int count);
     int getFoodCount() const;
-    Level(int initialSpeed) : m_initialSpeed(initialSpeed) {}
-    int getInitialSpeed() const { return m_initialSpeed; }// 设置障碍物的位置
+    Level(int initialSpeed) : m_initialSpeed(initialSpeed){};
+    int getInitialSpeed() const { return m_initialSpeed; };// 设置障碍物的位置
     const QVector<QPoint>& getObstacles() const; // 获取障碍物的位置
     void setObstacles(QString level);
     void setObstacles(const QVector<QPoint> &obstacles) {this->obstacles = obstacles;}

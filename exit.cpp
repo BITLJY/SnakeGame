@@ -5,8 +5,7 @@ Exit::Exit(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Exit)
 {
-    ui->setupUi(this);
-    this->setStyleSheet("#Exit{border-image: url(:/new/prefix2/exitpicture.jpg);}");
+    ui->setupUi(this);   
 }
 
 Exit::~Exit()

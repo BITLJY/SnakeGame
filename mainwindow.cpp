@@ -175,6 +175,7 @@ void MainWindow::closeEvent(QCloseEvent *event3)
 {
     Exit *exit=new Exit();
     exit->show();
+    exit->setStyleSheet("#Exit{border-image: url(:/new/prefix2/exit2.jpg);}");
     if(exit->exitok)
     {
          event3->accept();
